@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oura-smart-alarm"
+version = "0.1.0"
+description = "Analyse Oura sleep-stage data and choose a wake time inside a configurable window."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Viggo Gustafson"}]
+dependencies = [
+  "matplotlib>=3.7",
+  "pandas>=2.0",
+  "requests>=2.28",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+oura-smart-alarm = "oura_alarm.gui:launch"
+
+[project.urls]
+Homepage = "https://github.com/viggsss/oura-smart-alarm"
+Issues = "https://github.com/viggsss/oura-smart-alarm/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
